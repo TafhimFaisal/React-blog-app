@@ -4,8 +4,25 @@ import Card from './Card'
 function SideBar() {
     return (
         <div>
-            <Card />
-            <Card />
+            <div className="card">
+            
+                <div className="card-content black-text">
+                    <span className="card-title">Weather Card</span>
+                    <p></p>
+                </div>
+
+            </div>
+
+            <div className="card">
+            
+                <div className="card-content black-text">
+                    <span className="card-title">Data Card</span>
+                    <p></p>
+                </div>
+
+            </div>
+            
+
         </div>
     )
 }

@@ -9,9 +9,6 @@ export default class Blogs extends Component {
         return (
             <RightSideBar component={
                 <div>
-                    <h1>
-                        Blogs
-                    </h1>
                     <Link to="/blog/1" >
                         <Card/>
                     </Link>

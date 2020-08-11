@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import TextInput from '../partials/TextInput'
 import PasswordInput from '../partials/PasswordInput'
+import { connect } from 'react-redux'
+import signInAction from '../../store/actions/auth-action/signInAction'
 
-export default class SignIn extends Component {
+class SignIn extends Component {
     render() {
         return (
             <div className="container">
@@ -12,7 +14,7 @@ export default class SignIn extends Component {
                 </h1>
 
                 <div className="row container">
-                    <form>
+                    <form onSubmit={ (e) => { this.props.signIn(e) } }>
                         <div className="col s12">
                             <TextInput name={'email'}/>
                         </div>
@@ -31,3 +33,17 @@ export default class SignIn extends Component {
         )
     }
 }
+
+let mapStateToProps = (state) => {
+    return {
+        auth:state.auth
+    }
+}
+
+let mapDispatchToProps = (dispatch) => {
+    return {
+        signIn: (e) => dispatch(signInAction(e))
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(SignIn);

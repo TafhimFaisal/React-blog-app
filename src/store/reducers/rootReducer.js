@@ -1,8 +1,7 @@
 import authReducer from "./authReducer";
 import blogReducer from "./blogReducer";
-import combineReducers from "redux";
+import { combineReducers } from "redux";
 
-const initialStete = {}
 
 const rootReducer = combineReducers({
     auth: authReducer,

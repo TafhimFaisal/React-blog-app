@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import TextInput from '../partials/TextInput'
 import TextArea from '../partials/TextArea'
+import createBlogAction from '../../store/actions/blog-action/createBlogAction'
+import { connect } from 'react-redux'
 
-export default class CreateBlog extends Component {
+class CreateBlog extends Component {
     render() {
         return (
             <div className="container">
@@ -31,3 +33,18 @@ export default class CreateBlog extends Component {
         )
     }
 }
+
+let mapStateToProps = (state) => {
+    return {
+        auth: state.auth
+    }
+}
+
+
+let mapDispatchToProps = (dispatch) => {
+    return {
+        createBlog : (blog) => dispatch(createBlogAction(blog))
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(CreateBlog)

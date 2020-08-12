@@ -1,5 +1,8 @@
 const initialState = {
-    is_authenticated:false
+    is_authenticated:false,
+    email:null,
+    name:null,
+    uid:null
 }
 
 const authReducer = (state = initialState,action) => {
@@ -7,9 +10,10 @@ const authReducer = (state = initialState,action) => {
         switch (action.type) {
             case "Sign_in":
                 return {
-                    is_authenticated:true
+                    is_authenticated:true,
+                    email:action.user_Info.email
                 }
-            case "Sign_out" :
+            case "Sign_out":
                 return {
                     is_authenticated:false
                 }

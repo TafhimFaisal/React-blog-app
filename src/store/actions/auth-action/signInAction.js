@@ -1,16 +1,21 @@
 
 
 const signInAction = (e) => {
+
     return (dispatch,getstate) => {
-        e.preventDefault()
-        console.log(e);
+
+        let email = e.target.elements["email"].value
+        let password = e.target.elements["password"].value 
 
         dispatch({
             type:"Sign_in",
-            is_authenticated: true
+            user_Info : {
+                email: e.target.elements["email"].value
+            }
         })
-        
+
     }
+
 }
 
 export default signInAction

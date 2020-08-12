@@ -1,8 +1,21 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
-function SideBar() {
+function SideBar(props) {
     return (
         <div>
+            <div className="card">
+                
+                <div className="card-content black-text">
+                    <span className="card-title">{ 
+                        props.userInfo.is_authenticated ? 
+                            props.userInfo.email : "Sign in please"
+                    }</span>
+                    <p></p>
+                </div>
+
+            </div>
+
             <div className="card">
             
                 <div className="card-content black-text">
@@ -21,9 +34,14 @@ function SideBar() {
 
             </div>
             
-
         </div>
     )
 }
 
-export default SideBar
+let mapStateToProps = (state) => {
+    return {
+        userInfo: state.auth
+    }
+}
+
+export default connect(mapStateToProps)(SideBar)
